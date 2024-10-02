@@ -28,7 +28,7 @@ if(!isset($_SESSION['id'])){
         $escolha = $resultado->fetch_all(MYSQLI_ASSOC);
   
         foreach($escolha as $e){
-            echo "<a href='resultado_votacao?id_escolha={$e['id']}'>{$e['nome']}<a>";
+            echo "<a href='resultado_votacao.php?id_escolha={$e['id']}'>{$e['nome']}<a>";
         }
     }
 
