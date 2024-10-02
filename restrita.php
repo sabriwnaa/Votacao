@@ -5,6 +5,17 @@ if(!isset($_SESSION['id'])){
 }
 
     $db = new mysqli("localhost", "root", "", "votacao");
+
+    $stmt = $db->prepare("SELECT id_escolha FROM pessoa WHERE id = ?");
+    $stmt->bind_param("i", $id_pessoa);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $pessoa = $resultado->fetch_assoc();
+    
+    // Se já votou (id_escolha não é nulo)
+    if ($pessoa['id_escolha'] !== null) {
+        echo "header('location: resultado_votacao.php')";
+    }
     
     $stmt = $db->prepare("select * from escolha");
     $stmt->execute();

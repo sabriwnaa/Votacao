@@ -41,12 +41,9 @@ if($resultado->num_rows==0){
         //dá para adicionar qualquer variavel e informação dentro da session, que é um array qualquer
         //_SESSION['email'] = $pessoa['email'] -> se quiser exibir o email no cabecalho
         //Redireciona para área restrita
-
-        if($pessoa['id_escolha' !== null]){
-            header("location: restrita.php");
-        }else {
-            header("location: restrita.php");
-        }
+        
+        header("location: restrita.php");
+        
        
     }else{
         //Redireciona para a página inicial

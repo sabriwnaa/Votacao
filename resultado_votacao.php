@@ -7,9 +7,9 @@ if ((!isset($_SESSION['id'])) || (!isset($_GET['id_escolha']))) {
 $db = new mysqli("localhost", "root", "", "votacao");
 
 $id_escolha = $_GET['id_escolha']; 
-$id_usuario = $_SESSION['id'];
+$id_pessoa = $_SESSION['id'];
 
-$sql = "UPDATE pessoa SET id_escolha = $id_escolha WHERE id = $id_usuario;";
+$sql = "UPDATE pessoa SET id_escolha = $id_escolha WHERE id = $id_pessoa;";
 $db->query($sql);
 
 $stmt = $db->prepare("SELECT e.nome, COUNT(p.id_escolha) AS votos
@@ -34,4 +34,21 @@ $vencedor = $row;
 
 // Exibe quem foi o vencedor
 echo "<h2>O vencedor é: {$vencedor['nome']} com {$vencedor['votos']} votos!</h2>";
+
+// Consulta para pegar o id_escolha do usuário
+$stmt = $db->prepare("SELECT id_escolha FROM pessoa WHERE id = ?");
+$stmt->bind_param("i", $id_pessoa);
+$stmt->execute();
+$resultado = $stmt->get_result();
+$pessoa = $resultado->fetch_assoc();
+
+$id_escolha = $pessoa['id_escolha'];
+    
+    $stmt2 = $db->prepare("SELECT nome FROM escolha WHERE id = ?");
+    $stmt2->bind_param("i", $id_escolha);
+    $stmt2->execute();
+    $resultado_escolha = $stmt2->get_result();
+    $escolha = $resultado_escolha->fetch_assoc();
+
+    echo "Você votou em: " . $escolha['nome'];
 
