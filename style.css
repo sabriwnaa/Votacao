@@ -3,3 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b284e;
+    color: aliceblue;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    background-color: #1a365c;
+}

@@ -8,18 +8,20 @@
 </head>
 <body>
     <div class='container'>
+        <h1>Crie sua votação</h1>
+        <h3>Adicione as opções, vote e visualize o resultado de forma colaborativa</h3>
         <div class='box'>
-            <h1>Votação</h1>
+            
             <form action='login.php' method='post'>
                 <label>E-mail:</label>
-                <input type='text' name='email' require>
+                <input type='text' name='email' class='entrada' require>
                 <label>Senha:</label>
-                <input type='password' name='senha' require>
+                <input type='password' name='senha' class='entrada' require>
                 <div class='grupo_botao'>
-                    <input type='submit' name='botao' value='Acessar'>
+                    <input type='submit' name='botao' class='botao' value='Acessar'>
                 </div>
-                <a href='form_add_pessoa.php'>Adicionar nova pessoa</a>
-                
+                <a href='form_add_pessoa.php'>Ainda não está cadastrado? Cadastre-se</a>
+              
             </form>
         </div>
     </div>
