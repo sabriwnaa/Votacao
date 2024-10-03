@@ -34,22 +34,40 @@ $id_pessoa = $_SESSION['id'];
 </head>
 <body>
     <div class='container'>
-    <h1>Votação para liderança da turma 3TI</h1>
-      <?php 
-    if($resultado->num_rows==0){
-        echo "Não há escolhas disponíveis. Morra sem líder";
-    }else{
-        $escolha = $resultado->fetch_all(MYSQLI_ASSOC);
-  
-        foreach($escolha as $e){
-            echo "<a href='resultado_votacao.php?id_escolha={$e['id']}'>{$e['nome']}<a>";
-        }
-    }
+        <div class='header'>
+            <h1>Votação</h1>
+        </div>
 
-    echo "<a href='form_add_escolha.php'>Adicionar escolha</a>";
-    echo "<a href='logout.php'>Sair</a>";
+        <div class='main' style='flex-direction:column;'>
+            <div class='cabecalhoOpcoes'>
+                <h2>Opções</h2>  
+                <a class='botao' style='text-decoration:none;' href='form_add_escolha.php'>Adicionar opção</a>
 
-?>
+          
+            </div>
+          <div class='opcoes'>
+                            
+                <?php 
+                if($resultado->num_rows==0){
+                    echo "Não há escolhas disponíveis. Morra sem líder";
+                }else{
+                    $escolha = $resultado->fetch_all(MYSQLI_ASSOC);
+            
+                    foreach($escolha as $e){
+                        echo "<a class='botao' style='text-decoration:none; width: 250px; margin: 20px;'href='resultado_votacao.php?id_escolha={$e['id']}'>{$e['nome']}<a>";
+                    }
+                }
+
+                ?>
+
+            </div>
+        </div>
+
+        <div class='footer'>
+            <a class='botao' style='text-decoration: none;' href='logout.php'>Sair</a>
+        </div>
+
+    
     </div>
 </body>
 </html>
