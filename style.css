@@ -108,3 +108,12 @@ h3{
     font-size: 30px;
     border-radius: 20px;
 }
+
+.votacao{
+    display: flex;
+}
+
+.resultadoVotacao{
+    display: flex;
+    flex-direction: column;
+}

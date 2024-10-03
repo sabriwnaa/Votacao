@@ -14,7 +14,6 @@ if (isset($_GET['id_escolha'])) {
     $db->query($sql);
 }
 
-
 $stmt = $db->prepare("SELECT e.nome, COUNT(p.id_escolha) AS votos
     FROM escolha e
     JOIN pessoa p ON e.id = p.id_escolha
@@ -23,20 +22,79 @@ $stmt = $db->prepare("SELECT e.nome, COUNT(p.id_escolha) AS votos
 $stmt->execute();
 $resultado = $stmt->get_result();
 
-echo "<h1>Resultado da Votação</h1>";
 
-$vencedor = null;
-while ($row = $resultado->fetch_assoc()) {
-echo "<p>{$row['nome']}: {$row['votos']} votos</p>";
+?>
 
-// Determina o vencedor, que é a escolha com mais votos
-if ($vencedor === null || $row['votos'] > $vencedor['votos']) {
-$vencedor = $row;
-}
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da votação</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-// Exibe quem foi o vencedor
-echo "<h2>O vencedor é: {$vencedor['nome']} com {$vencedor['votos']} votos!</h2>";
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <h1>Resultado da Votação</h1>;
+        </div>
+    
+        <div class='main'>
+            <div class='votacao'>
+                
+                <div class='resultadoVotacao'>
+                    <div class='vencedor'>
+                            <?php 
+                            
+                                    while ($row = $resultado->fetch_assoc()) {
+                                        $vencedor = null;
+                                        if ($vencedor === null || $row['votos'] > $vencedor['votos']) {
+                                        $vencedor = $row;
+                                        }
+                                        
+                                    }
+                                    
+                                    echo "<h1>Vencedor(a): {$vencedor['nome']}</h1>";
+
+                            
+                            
+                            
+                            ?>
+                    </div>
+                    <div class='todosVotos'>
+                        <?php
+
+                        while ($row = $resultado->fetch_assoc()) {
+                        echo "<p>{$row['nome']}: {$row['votos']} votos</p>";
+
+                        }
+
+                        ?>
+                                    
+                    </div>
+
+                </div>
+                
+                
+                <div class='seuVoto'>
+
+                </div>
+
+            </div>
+            
+            
+        </div>
+
+        <div class='footer'>
+            <a class='botao' href='logout.php'>Sair</a>
+        </div>
+    
+    
+
+
+<?php
 
 // Consulta para pegar o id_escolha do usuário
 $stmt = $db->prepare("SELECT id_escolha FROM pessoa WHERE id = ?");
@@ -55,4 +113,13 @@ $id_escolha = $pessoa['id_escolha'];
 
     echo "Você votou em: " . $escolha['nome'];
 
-    echo "<a href='logout.php'>Sair</a>";
+?>
+
+
+    </div>
+
+
+    
+</body>
+</html>
+

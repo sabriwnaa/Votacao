@@ -22,7 +22,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Pessoa</title>
+    <title>Cadastrar-se</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -48,7 +48,7 @@
                     <input type='password' name='senha' class='entrada' require>
                 </div>
                 <div class='grupo_botao'>
-                    <input type='submit' name='botao' class='botao' value='Adicionar'>
+                    <input type='submit' name='botao' class='botao' value='Cadastrar'>
                     <a href='index.php'>Voltar</a>
                 </div>
             </form>
