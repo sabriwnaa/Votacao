@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Votação</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class='container'>
@@ -27,8 +29,9 @@
                 </div>
                 <div class='grupo_botao'>
                     <input type='submit' name='botao' class='botao' value='Acessar'>
+                    <a class='naoCadastro' href='form_add_pessoa.php'>Ainda não está cadastrado? Cadastre-se</a>
                 </div>
-                <a href='form_add_pessoa.php'>Ainda não está cadastrado? Cadastre-se</a>
+                
               
             </form>
         </div>
