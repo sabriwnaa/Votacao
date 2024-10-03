@@ -17,14 +17,40 @@
 
 .header{
     flex: 1;
-}
-
-.box{
-    flex: 8;
-    background-color: #1a365c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer{
     flex: 1;
+    display: flex;
     align-items: center;
+}
+
+.box{
+    display: flex;
+    flex: 8;
+    width: 50vw;
+    background-color: #1a365c;
+    border-radius: 5%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.comando{
+    flex: 1;
+}
+
+.insercao{
+    flex: 2;
+}
+
+.grupo_botao{
+    flex: 1;
 }

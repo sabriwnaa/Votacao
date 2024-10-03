@@ -15,10 +15,16 @@
         <div class='box'>
             
             <form action='login.php' method='post'>
-                <label>E-mail:</label>
-                <input type='text' name='email' class='entrada' require>
-                <label>Senha:</label>
-                <input type='password' name='senha' class='entrada' require>
+                <h2 class='comando'>Entre na sua conta</h2>
+                <div class='insercao'>
+                    <label>E-mail:</label>
+                    <input type='text' name='email' class='entrada' require>
+                
+                </div>
+                <div class='insercao'>
+                    <label>Senha:</label>
+                    <input type='password' name='senha' class='entrada' require>
+                </div>
                 <div class='grupo_botao'>
                     <input type='submit' name='botao' class='botao' value='Acessar'>
                 </div>
