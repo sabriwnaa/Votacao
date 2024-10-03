@@ -24,23 +24,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Pessoa</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class='container'>
+    <div class='header'>
+            <h1>Crie sua votação</h1>
+            <h3>Adicione as opções, vote e visualize o resultado de forma colaborativa</h3>
+        </div>
         <div class='box'>
-            <h1>Cadatrar-se</h1>
+            
 
             <form method='post' action='form_add_pessoa.php'>
-                <label>E-mail:</label>
-                <input type='text' name='email' require>
-                <label>Senha:</label>
-                <input type='password' name='senha' require>
-                <div class='grupo_botao'>
-                    <input type='submit' name='botao' value='Adicionar'>
+                <h1 class='comando'>Cadastrar-se</h1>
+                <div class='insercao'>
+                    <label>E-mail:</label>
+                    <input type='text' name='email' class='entrada' require>
+                
                 </div>
-                <a href='index.php'>Voltar</a>
+                <div class='insercao'>
+                    <label>Senha:</label>
+                    <input type='password' name='senha' class='entrada' require>
+                </div>
+                <div class='grupo_botao'>
+                    <input type='submit' name='botao' class='botao' value='Adicionar'>
+                    <a href='index.php'>Voltar</a>
+                </div>
             </form>
             
+        </div>
+        <div class='footer'>
+            <h3>Sabrina Hahn Melo, 3TI - Programação III</h3>
         </div>
     </div>
 </body>

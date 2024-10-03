@@ -39,11 +39,12 @@
 }
 
 form{
+    flex:8;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    
 }
 
 .comando{
@@ -60,6 +61,7 @@ form{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 
 }
 
