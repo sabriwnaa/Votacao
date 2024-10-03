@@ -1,16 +1,19 @@
 <?php
 session_start();
-if ((!isset($_SESSION['id'])) || (!isset($_GET['id_escolha']))) {
+if ((!isset($_SESSION['id'])) ) {
     header("location: index.php");
 }
 
 $db = new mysqli("localhost", "root", "", "votacao");
 
-$id_escolha = $_GET['id_escolha']; 
 $id_pessoa = $_SESSION['id'];
+if (isset($_GET['id_escolha'])) {
+    $id_escolha = $_GET['id_escolha']; 
+   
+    $sql = "UPDATE pessoa SET id_escolha = $id_escolha WHERE id = $id_pessoa;";
+    $db->query($sql);
+}
 
-$sql = "UPDATE pessoa SET id_escolha = $id_escolha WHERE id = $id_pessoa;";
-$db->query($sql);
 
 $stmt = $db->prepare("SELECT e.nome, COUNT(p.id_escolha) AS votos
     FROM escolha e
@@ -52,3 +55,4 @@ $id_escolha = $pessoa['id_escolha'];
 
     echo "Você votou em: " . $escolha['nome'];
 
+    echo "<a href='logout.php'>Sair</a>";

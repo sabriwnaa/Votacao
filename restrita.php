@@ -4,6 +4,8 @@ if(!isset($_SESSION['id'])){
     header("location: index.php");
 }
 
+$id_pessoa = $_SESSION['id'];
+
     $db = new mysqli("localhost", "root", "", "votacao");
 
     $stmt = $db->prepare("SELECT id_escolha FROM pessoa WHERE id = ?");
@@ -14,7 +16,7 @@ if(!isset($_SESSION['id'])){
     
     // Se já votou (id_escolha não é nulo)
     if ($pessoa['id_escolha'] !== null) {
-        echo "header('location: resultado_votacao.php')";
+        header('location: resultado_votacao.php');
     }
     
     $stmt = $db->prepare("select * from escolha");
