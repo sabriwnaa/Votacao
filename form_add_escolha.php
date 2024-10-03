@@ -23,14 +23,20 @@
 </head>
 <body>
     <div class='container'>
+        <div class='header'>
+             <h1 class='comando'>Adicionar escolha</h1>
+        </div>
+
+
+
         <div class='box'>
-            <h1>Adicionar escolha</h1>
+           
 
             <form method='post' action='form_add_escolha.php'>
                 <label>Nome:</label>
                 <input type='text' name='nome' require>
                 <div class='grupo_botao'>
-                    <input type='submit' name='botao' value='Adicionar'>
+                    <input class='botao' type='submit' name='botao' value='Adicionar'>
                 </div>
                 <a href='restrita.php'>Voltar</a>
             </form>
