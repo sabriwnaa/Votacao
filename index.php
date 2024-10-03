@@ -8,8 +8,10 @@
 </head>
 <body>
     <div class='container'>
-        <h1>Crie sua votação</h1>
-        <h3>Adicione as opções, vote e visualize o resultado de forma colaborativa</h3>
+        <div class='header'>
+            <h1>Crie sua votação</h1>
+            <h3>Adicione as opções, vote e visualize o resultado de forma colaborativa</h3>
+        </div>
         <div class='box'>
             
             <form action='login.php' method='post'>
@@ -23,6 +25,10 @@
                 <a href='form_add_pessoa.php'>Ainda não está cadastrado? Cadastre-se</a>
               
             </form>
+        </div>
+
+        <div class='footer'>
+            <h3>Sabrina Hahn Melo, 3TI - Programação III</h3>
         </div>
     </div>
 </body>

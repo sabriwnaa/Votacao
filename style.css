@@ -9,10 +9,22 @@
     height: 100vh;
     background-color: #0b284e;
     color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header{
+    flex: 1;
 }
 
 .box{
-    height: 100px;
-    width: 100px;
+    flex: 8;
     background-color: #1a365c;
+}
+
+.footer{
+    flex: 1;
+    align-items: center;
 }
