@@ -49,12 +49,12 @@ $id_pessoa = $_SESSION['id'];
                             
                 <?php 
                 if($resultado->num_rows==0){
-                    echo "Não há escolhas disponíveis. Morra sem líder";
+                    echo "<h2>Ainda não foram cadastradas opções para a votação.</h2>";
                 }else{
                     $escolha = $resultado->fetch_all(MYSQLI_ASSOC);
             
                     foreach($escolha as $e){
-                        echo "<a class='botao' style='text-decoration:none; width: 250px; margin: 20px;'href='resultado_votacao.php?id_escolha={$e['id']}'>{$e['nome']}<a>";
+                        echo "<a class='botao' style='text-decoration:none; width: 400px; height: 100px; margin: 20px;'href='resultado_votacao.php?id_escolha={$e['id']}'>{$e['nome']}<a>";
                     }
                 }
 
